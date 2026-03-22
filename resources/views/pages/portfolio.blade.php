@@ -191,7 +191,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="{{ route('inicioxgaswaras') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/porto1.jpg') }}" alt="GasWaroS" class="portfolio-card-img">
+                                <img src="{{ asset('assets/IGArtboard 1@4x.png') }}" alt="GasWaroS" class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">GasWaraS</div>
                                 </div>
@@ -203,7 +203,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="{{ route('ah-pek-kopitiam') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/porto3.jpg') }}" alt="Ah Pek Kopitiam" class="portfolio-card-img">
+                                <img src="{{ asset('assets/design cup.png') }}" alt="Ah Pek Kopitiam" class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Ah Pek Kopitiam</div>
                                 </div>
@@ -215,7 +215,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="{{ route('hutaraja-coffee-shop') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/porto4.jpg') }}" alt="Hutaraja Coffee Shop" class="portfolio-card-img">
+                                <img src="{{ asset('assets/Final Poster_Kennan A.M._097.png') }}" alt="Hutaraja Coffee Shop" class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Hutaraja Coffee Shop</div>
                                 </div>
@@ -227,7 +227,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="{{ route('isyana-sarasvati') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/porto5.jpg') }}" alt="Isyana Sarasvati" class="portfolio-card-img">
+                                <img src="{{ asset('assets/cover buku.png') }}" alt="Isyana Sarasvati" class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Isyana Sarasvati</div>
                                 </div>
@@ -239,7 +239,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="{{ route('lus-adventures-de-l-art-deco') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/porto6.jpg') }}" alt="Lus Adventures" class="portfolio-card-img">
+                                <img src="{{ asset('assets/cgcoverRRR.png') }}" alt="Lus Adventures" class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Lus Adventures De l'Art Deco</div>
                                 </div>
@@ -251,7 +251,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="{{ route('cookie-up-your-day') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/porto6.jpg') }}" alt="Cookie Up Your Day" class="portfolio-card-img">
+                                <img src="{{ asset('assets/Screenshot 2025-04-12 145334.png') }}" alt="Cookie Up Your Day" class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Cookie up your Day</div>
                                 </div>
