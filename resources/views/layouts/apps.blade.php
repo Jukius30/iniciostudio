@@ -58,6 +58,44 @@
             border-radius: 4px;
         }
 
+        /* ================= FLOATING SOCIAL BAR (NEW) ================= */
+        .floating-social-bar {
+            position: fixed;
+            bottom: -100px; /* Tersembunyi di bawah layar secara default */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #D0C1A7; /* Warna cokelat pasir */
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            /* Efek Bounce saat muncul */
+            transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        /* Class untuk memunculkan via JS */
+        .floating-social-bar.show-bar {
+            bottom: 40px;
+        }
+
+        .social-icon-btn {
+            color: #394428;
+            font-size: 1.6rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icon-btn:hover {
+            color: #ffffff;
+            transform: scale(1.2) translateY(-3px);
+        }
+
         /* ================= MODAL CONTACT STYLE ================= */
         .contact-modal-body {
             background-color: #2D341F !important;
@@ -133,6 +171,7 @@
             .footer-inicio { padding: 50px 20px; }
             .footer-desc { text-align: left; margin-bottom: 30px; }
             .nav-link { padding: 10px 0; }
+            .floating-social-bar.show-bar { bottom: 20px; }
         }
     </style>
 
@@ -168,6 +207,12 @@
     <main class="flex-fill">
         @yield('content')
     </main>
+
+    <div class="floating-social-bar" id="social-bar">
+        <a href="https://instagram.com/iniciostudio.id" target="_blank" class="social-icon-btn"><i class="bi bi-instagram"></i></a>
+        <a href="#" target="_blank" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" target="_blank" class="social-icon-btn"><i class="bi bi-youtube"></i></a>
+    </div>
 
     <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -237,6 +282,26 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialBar = document.getElementById('social-bar');
+            
+            // Fungsi pengecekan scroll
+            function handleScroll() {
+                // Di halaman About, section 1 memiliki tinggi vh (100vh)
+                // Kita munculkan bar jika scroll sudah lebih dari 300 pixel (atau sesuaikan sesuai keinginan)
+                if (window.scrollY > 300) {
+                    socialBar.classList.add('show-bar');
+                } else {
+                    socialBar.classList.remove('show-bar');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Cek saat pertama kali load
+        });
+    </script>
 
     @stack('scripts')
     @yield('scripts')

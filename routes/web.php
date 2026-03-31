@@ -48,3 +48,7 @@ Route::get('/lus-adventures-de-l-art-deco', function () {
 Route::get('/cookie-up-your-day', function () {
     return view('pages.cookie'); // menuju resources/views/pages/cookie-up-your-day.blade.php
 })->name('cookie-up-your-day');
+
+Route::get('/agensi-kreatif-profesional-untuk-membangun-brand-yang-kuat-dan-relevan', function () {
+    return view('pages.newsdesainweb'); // menuju resources/views/pages/newsdesainwebsite.blade.php
+})->name('agensi-kreatif-profesional-untuk-membangun-brand-yang-kuat-dan-relevan');
