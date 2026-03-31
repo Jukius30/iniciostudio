@@ -52,3 +52,7 @@ Route::get('/cookie-up-your-day', function () {
 Route::get('/agensi-kreatif-profesional-untuk-membangun-brand-yang-kuat-dan-relevan', function () {
     return view('pages.newsdesainweb'); // menuju resources/views/pages/newsdesainwebsite.blade.php
 })->name('agensi-kreatif-profesional-untuk-membangun-brand-yang-kuat-dan-relevan');
+
+Route::get('/what-s-behind-inicio-studio', function () {
+    return view('pages.newsinicio'); // menuju resources/views/pages/newsinicio.blade.php
+})->name('what-s-behind-inicio-studio');

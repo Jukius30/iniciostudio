@@ -214,6 +214,25 @@
                         </div>
                     </div>
 
+                    {{-- Card 2 --}}
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="news-card">
+                            <div class="news-img-wrapper">
+                                <img src="{{ asset('assets/stiker2.jpg') }}" class="news-img" alt="News 2">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">21 Oktober 2025</span>
+                                <a href="{{ url('/what-s-behind-inicio-studio') }}" class="news-title">
+                                    What's behind Inicio Studio
+                                </a>
+                                <p class="news-excerpt">Inicio Studio adalah agency bisnis yang membuat...</p>
+                                <a href="{{ url('/what-s-behind-inicio-studio') }}" class="btn-read-more">
+                                    Read More <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     {{-- Anda bisa menambah Card 2, 3, dst di bawah sini dengan struktur col-lg-4 yang sama --}}
 
                 </div> {{-- End Row --}}
