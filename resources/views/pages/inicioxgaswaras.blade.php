@@ -195,9 +195,6 @@
         <section class="gws-intro-section">
             <div class="container" data-aos="fade-up">
                 <div class="gws-intro-pill">Design Agency</div>
-                <p class="gws-intro-text">
-                    This agency is particularly appealing to content creators as its primary target market by focusing on segments needed by content creators, such as editing, logos, mascots, or merchandise.
-                </p>
             </div>
         </section>
 
@@ -208,14 +205,16 @@
                     <div class="green-box-about" data-aos="fade-right">
                         <h2 style="font-weight: 700; font-size: 2.5rem; margin-bottom: 15px;">About Company</h2>
                         <p style="text-align: justify; line-height: 1.7;">
-                            Explore our collaboration with GasWaraS, a design agency that shares our passion for creative problem-solving and simplified design solutions.
+                            GaswWaraS Desagn Agency is a desaign agency that focuses on creating desaigns for content creators. We aim to solve the challenges faced by content creators who struggle with designing and video editing, allowing our clients to focus more easily on content creation itself.
                         </p>
                     </div>
 
                     <div class="brown-box-market" data-aos="fade-right" data-aos-delay="200">
                         <h2 style="font-weight: 700; font-size: 2.5rem; margin-bottom: 15px;">Target Market</h2>
                         <p style="text-align: justify; line-height: 1.7;">
-                            Our mission is to empower content creators with professional-grade design. We ensure their visual identity reflects the quality of their work, helping them stand out and succeed.
+                            The target market of GasWaraS Desaign Agency is content creators across Indonesia who lack the skills or time to handle design tasks on their own. So it comes to GasWaraS to help alleviate time for the content creators.
+                            <br></br>
+                            This agency is particularly appealing to content creators as its primary target market by focusing on segments needed by content creators, such as editing, logos, mascots, or merchendise.
                         </p>
                     </div>
                 </div>

@@ -2,11 +2,11 @@
 
 @section('content')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    {{-- Ikon FontAwesome untuk Expertise --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
     <style>
+        <style>
+
         /* ================= FIXED LAYOUT RESET ================= */
         html,
         body {
@@ -29,10 +29,7 @@
             grid-template-columns: 20% 60% 20%;
             width: 100%;
             min-height: 100vh;
-            margin: 0;
-            padding: 0;
             background-color: #394428;
-            overflow: hidden;
         }
 
         .hero-side-image-left,
@@ -40,7 +37,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            width: 100%;
             height: 100%;
         }
 
@@ -55,25 +51,65 @@
         .brand-content-middle {
             background-color: #8A9165;
             display: flex;
-            align-items: center;
-            padding: 60px;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px 100px 60px;
             color: white;
-            width: 100%;
-            height: 100%;
             position: relative;
         }
 
+        .hero-text-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-title-wrapper,
+        .brand-subtitle-wrapper {
+            width: 100%;
+        }
+
         .brand-title-main {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 5px;
         }
 
         .brand-subtitle-main {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.5rem, 2.6vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 36px;
+            text-align: left;
+            white-space: nowrap;
+            /* paksa satu baris */
+            letter-spacing: -0.3px;
+        }
+
+        .brand-description-left {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            text-align: left;
+            max-width: 460px;
             font-weight: 400;
-            margin-bottom: 30px;
+        }
+
+        .brand-description-left strong,
+        .brand-description-right strong {
+            font-weight: 700;
+        }
+
+        .brand-description-right {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            text-align: right;
+            max-width: 400px;
+            margin-top: 28px;
+            font-weight: 400;
         }
 
         .brand-description-text {
@@ -83,31 +119,37 @@
         }
 
         .brand-logo-hero {
-            max-width: 280px;
+            max-width: 220px;
             width: 100%;
             height: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
         }
 
         .btn-hubungi {
             display: inline-block;
             margin-top: 40px;
             padding: 12px 40px;
+            /* Ubah background ke hijau gelap sesuai tema */
+            background-color: #8A9165 !important;
             border: 2px solid white;
             border-radius: 15px;
-            color: white;
+            color: white !important;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.5rem;
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
+
         }
 
         .btn-hubungi:hover {
-            background-color: white;
-            color: #8A9165;
+            background-color: white !important;
+            color: #8A9165 !important;
             text-decoration: none;
         }
 
-        /* ================= SEE MORE INDICATOR ================= */
+        /* SEE MORE INDICATOR */
         .see-more-container {
             position: absolute;
             bottom: 30px;
@@ -127,9 +169,22 @@
         }
 
         @keyframes bounce-v {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-8px);
+            }
+
+            60% {
+                transform: translateY(-4px);
+            }
         }
 
         /* ================= 2. PROMO DISKON ================= */
@@ -173,7 +228,7 @@
             margin-left: 150px;
         }
 
-        /* ================= 3. OUR CORE EXPERTISE (REVEAL ANIMATION) ================= */
+        /* ================= 3. OUR CORE EXPERTISE ================= */
         .expertise-section {
             background-color: #D0C1A7;
             padding: 100px 0;
@@ -227,7 +282,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            transform: translateY(0);
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             z-index: 2;
             padding: 40px;
@@ -267,7 +321,7 @@
             z-index: 1;
             padding: 35px;
             text-align: center;
-            background-color: #E2D5BE; /* Warna krem saat terbuka */
+            background-color: #E2D5BE;
         }
 
         .expertise-card-reveal:hover .back-reveal {
@@ -351,7 +405,7 @@
             text-decoration: none;
         }
 
-        /* ================= 5. SECTION: VIDEO DISPLAY ================= */
+        /* ================= 5. VIDEO SECTION ================= */
         .video-section {
             background-color: #D0C1A7;
             padding: 120px 0;
@@ -369,7 +423,6 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             background-color: #394428;
-            transition: transform 0.4s ease;
         }
 
         .video-aspect-ratio {
@@ -406,39 +459,124 @@
         }
 
         @media (max-width: 1200px) {
-            .brand-section-grid { grid-template-columns: 1fr; }
-            .hero-side-image-left, .hero-side-image-right, .see-more-container { display: none; }
-            .brand-content-middle { padding: 40px 20px; text-align: center; }
+            .brand-section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-side-image-left,
+            .hero-side-image-right,
+            .see-more-container {
+                display: none;
+            }
+
+            .brand-content-middle {
+                padding: 80px 32px 100px 32px;
+            }
+
+            .brand-title-main,
+            .brand-subtitle-main {
+                white-space: normal;
+                /* boleh wrap di mobile */
+                text-align: center;
+            }
+
+            .brand-description-left,
+            .brand-description-right {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .brand-title-wrapper,
+            .brand-subtitle-wrapper {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brand-content-middle {
+                padding: 60px 24px 90px 24px;
+            }
+
+            .brand-title-main {
+                font-size: 2.4rem;
+            }
+
+            .brand-subtitle-main {
+                font-size: 1.5rem;
+            }
         }
     </style>
 
     <div class="bg-main">
 
-        {{-- 1. SECTION: HERO --}}
+        {{-- ================= 1. SECTION: HERO HOME ================= --}}
         <section class="brand-section-grid">
-            <div class="hero-side-image-left" data-aos="fade-right"></div>
+
+            {{-- Left Side Image --}}
+            <div class="hero-side-image-left" data-aos="fade-right" data-aos-duration="1000"></div>
+
+            {{-- Middle Content --}}
             <div class="brand-content-middle">
-                <div class="container-fluid px-0">
-                    <div class="row align-items-center g-0">
-                        <div class="col-lg-6" data-aos="fade-up">
-                            <h1 class="brand-title-main">Inicio Studio</h1>
-                            <h2 class="brand-subtitle-main">Branding Made Simple</h2>
-                            <div class="brand-description-text">
-                                <p><strong>INICIO Studio</strong> membantu bisnis membangun identitas visual profesional secara sederhana dan efektif.</p>
+                <div class="hero-text-wrapper">
+                    <div class="row align-items-center w-100 g-0">
+
+                        {{-- Sisi Kiri --}}
+                        <div class="col-lg-6 d-flex flex-column align-items-start" data-aos="fade-up"
+                            data-aos-duration="900">
+
+                            {{-- Judul dipisah ke div masing-masing agar tidak wrap --}}
+                            <div class="brand-title-wrapper">
+                                <h1 class="brand-title-main">Inicio Studio</h1>
                             </div>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn-hubungi">Hubungi Kami!</a>
+                            <div class="brand-subtitle-wrapper">
+                                <h2 class="brand-subtitle-main">Branding Made Simple</h2>
+                            </div>
+
+                            <div class="brand-description-left">
+                                <p>
+                                    <strong>INICIO Studio</strong> adalah sebuah creative agency yang berfokus pada desain
+                                    brand.
+                                    Kami membantu bisnis baik yang baru memulai maupun yang sudah berjalan untuk membangun
+                                    identitas
+                                    visual dan branding yang profesional, efektif, dan mudah dikenali.
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn-hubungi" data-bs-toggle="modal"
+                                data-bs-target="#contactModal">
+                                Hubungi Kami!
+                            </button>
                         </div>
-                        <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}" class="brand-logo-hero" alt="Logo">
+
+                        {{-- Sisi Kanan --}}
+                        <div class="col-lg-6 d-flex flex-column align-items-center" data-aos="fade-up" data-aos-delay="200"
+                            data-aos-duration="900">
+                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}" class="brand-logo-hero"
+                                alt="Inicio Studio Logo">
+
+                            <div class="brand-description-right">
+                                <p>
+                                    <strong>INICIO Studio</strong> hadir sebagai solusi bagi mereka yang belum memahami
+                                    dunia branding atau tidak memiliki waktu untuk mengurus desain, namun ingin
+                                    mengembangkan
+                                    bisnis yang terlihat lebih profesional dan memiliki citra kuat di mata pelanggan.
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
+
+                {{-- See More --}}
                 <a href="#promo-section" class="see-more-container">
-                    <span style="font-size: 0.7rem; letter-spacing: 2px;">See More</span>
+                    <span class="see-more-label">See More</span>
                     <i class="bi bi-chevron-down see-more-icon"></i>
                 </a>
             </div>
-            <div class="hero-side-image-right" data-aos="fade-left"></div>
+
+            {{-- Right Side Image --}}
+            <div class="hero-side-image-right" data-aos="fade-left" data-aos-duration="1000"></div>
+
         </section>
 
         {{-- 2. SECTION: PROMO --}}
@@ -456,12 +594,10 @@
             </div>
         </section>
 
-        {{-- 3. SECTION: EXPERTISE (REVEAL ANIMATION) --}}
+        {{-- 3. SECTION: EXPERTISE --}}
         <section class="expertise-section">
             <div class="container">
                 <h2 class="expertise-heading" data-aos="fade-up">Our Core Expertise</h2>
-
-                {{-- Baris Atas --}}
                 <div class="expertise-grid-container mb-4">
                     <div class="expertise-card-reveal" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-content-wrapper">
@@ -471,11 +607,11 @@
                             </div>
                             <div class="back-reveal">
                                 <h3>Visual Branding</h3>
-                                <p>Membangun identitas visual melalui desain logo, palet warna, tipografi, dan tone visual yang strategis.</p>
+                                <p>Membangun identitas visual melalui desain logo, palet warna, tipografi, dan tone visual
+                                    yang strategis.</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="expertise-card-reveal" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-content-wrapper">
                             <div class="front-reveal">
@@ -488,7 +624,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="expertise-card-reveal" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-content-wrapper">
                             <div class="front-reveal">
@@ -497,13 +632,12 @@
                             </div>
                             <div class="back-reveal">
                                 <h3>Consulting</h3>
-                                <p>Layanan konsultasi untuk membantu bisnis memahami tantangan brand dan mengoptimalkan komunikasi.</p>
+                                <p>Layanan konsultasi untuk membantu bisnis memahami tantangan brand dan mengoptimalkan
+                                    komunikasi.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {{-- Baris Bawah --}}
                 <div class="expertise-grid-container">
                     <div class="expertise-card-reveal" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-content-wrapper">
@@ -513,11 +647,11 @@
                             </div>
                             <div class="back-reveal">
                                 <h3>Social Media</h3>
-                                <p>Dirancang untuk membangun kehadiran brand, meningkatkan engagement, dan merawat komunitas audiens.</p>
+                                <p>Dirancang untuk membangun kehadiran brand, meningkatkan engagement, dan merawat komunitas
+                                    audiens.</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="expertise-card-reveal" data-aos="fade-up" data-aos-delay="500">
                         <div class="card-content-wrapper">
                             <div class="front-reveal">
@@ -545,7 +679,8 @@
                             <div data-aos="fade-up" data-aos-duration="1500">
                                 <h2 class="fw-bold mb-4" style="font-size: 2.8rem;">What we solve</h2>
                                 <p class="mb-5" style="font-size: 1rem; line-height: 1.8; text-align: justify;">
-                                    <strong>INICIO</strong> hadir membantu pebisnis membangun brand identity yang jelas dan konsisten agar tampil profesional di pasar.
+                                    <strong>INICIO</strong> hadir membantu pebisnis membangun brand identity yang jelas dan
+                                    konsisten agar tampil profesional di pasar.
                                 </p>
                                 <a href="/services" class="btn-solve-link">Look up our services</a>
                             </div>
@@ -561,7 +696,8 @@
                 <div class="video-frame-container" data-aos="zoom-in" data-aos-duration="1200">
                     <div class="video-aspect-ratio">
                         <div class="video-background-content">
-                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}" style="width:100px; filter: brightness(0) invert(1);" alt="Logo">
+                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}"
+                                style="width:100px; filter: brightness(0) invert(1);" alt="Logo">
                             <h4 style="color:white; font-weight:700; margin-top:10px;">INÍCIO STUDIO</h4>
                         </div>
                         <a href="https://www.youtube.com/watch?v=mG5YS757YCI" target="_blank" class="video-content-link">

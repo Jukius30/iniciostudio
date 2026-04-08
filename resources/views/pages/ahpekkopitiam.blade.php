@@ -20,19 +20,13 @@
             width: 100%;
         }
 
-        /* Reset padding khusus konten agar header lebar penuh */
-        .ahpek-page-wrapper .container-fluid {
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        /* ================= 2. HERO HEADER (100vh SAMA DENGAN GWS) ================= */
+        /* ================= 2. HERO HEADER ================= */
         .ahpek-header {
             position: relative;
             width: 100%;
             min-height: 100vh;
             background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
-                              url("{{ asset('assets/totebag_mockup.png') }}");
+                              url("{{ asset('assets/mockuptotebag.png') }}");
             background-size: cover;
             background-position: center;
             display: flex;
@@ -49,7 +43,33 @@
             text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.45);
         }
 
-        /* ================= 3. SECTION: INTRO ================= */
+        /* ================= 3. SEAMLESS GALLERY (4 IMAGES) ================= */
+        .ahpek-seamless-gallery {
+            width: 100%;
+            overflow: hidden;
+            margin-top:80px;
+            margin-bottom: 20px;
+        }
+
+        .seamless-item {
+            height: 450px; /* Tinggi seragam untuk 4 gambar */
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .seamless-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .seamless-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ================= 4. SECTION: INTRO ================= */
         .ahpek-intro-section {
             padding: 100px 0 60px;
             text-align: center;
@@ -67,7 +87,38 @@
             margin-bottom: 25px;
         }
 
-        /* ================= 4. CORE LAYOUT (IDENTIK DENGAN GWS) ================= */
+        /* ================= 5. SPLIT GALLERY (2 IMAGES SEJAJAR) ================= */
+        .ahpek-split-gallery {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .split-item {
+            display: flex;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 450px; /* Tinggi kotak sejajar */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ================= 6. CORE LAYOUT (ABOUT & MARKET) ================= */
         .ahpek-main-container {
             max-width: 1100px;
             margin: 0 auto 100px;
@@ -76,7 +127,7 @@
 
         .flex-layout-wrapper {
             display: flex;
-            align-items: center; /* Membuat Logo Berada di Tengah Vertikal */
+            align-items: stretch;
             justify-content: space-between;
             gap: 40px;
         }
@@ -94,18 +145,18 @@
             align-items: center;
         }
 
-        /* Kotak About (Hijau Gelap) */
         .box-about {
             background-color: #394428; 
             color: white;
             padding: 50px 40px;
+            flex: 1;
         }
 
-        /* Kotak Target Market (Cokelat Muda / Krem) */
         .box-market {
             background-color: #E2D5BE;
             padding: 50px 40px;
             color: #394428;
+            flex: 1;
         }
 
         .ahpek-logo-img {
@@ -126,7 +177,7 @@
             font-size: 1rem;
         }
 
-        /* ================= 5. GALLERY SECTION ================= */
+        /* ================= 7. FULL GALLERY SECTION ================= */
         .ahpek-gallery-grid {
             max-width: 1100px;
             margin: 0 auto;
@@ -140,10 +191,9 @@
             width: 100%;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            display: block;
         }
 
-        /* ================= 6. NAVIGATION BUTTON ================= */
+        /* ================= 8. NAVIGATION BUTTON ================= */
         .next-portfolio-wrapper {
             text-align: center;
             padding: 100px 0;
@@ -164,7 +214,6 @@
         .btn-next-portfolio:hover {
             background-color: #394428;
             color: white;
-            text-decoration: none;
             transform: translateY(-5px);
         }
 
@@ -172,6 +221,8 @@
             .flex-layout-wrapper { flex-direction: column; }
             .logo-side { order: -1; margin-bottom: 30px; }
             .ahpek-header { min-height: 60vh; }
+            .seamless-item { height: 300px; }
+            .img-wrapper { height: 300px; }
         }
     </style>
 
@@ -186,16 +237,12 @@
         <section class="ahpek-intro-section">
             <div class="container" data-aos="fade-up">
                 <div class="ahpek-intro-pill">Restaurant</div>
-                <p class="ahpek-intro-text" style="max-width: 800px; margin: 0 auto;">
-                    A collaboration that brings nostalgic warmth through exclusive merchandise, combining local Surabaya icons with modern aesthetic designs.
-                </p>
             </div>
         </section>
 
-        {{-- SECTION 3: CORE CONTENT (LAYOUT PERSIS GWS) --}}
+        {{-- SECTION 3: CORE CONTENT --}}
         <section class="ahpek-main-container">
             <div class="flex-layout-wrapper">
-                
                 <div class="text-side">
                     <div class="box-about" data-aos="fade-right">
                         <h2 class="ahpek-section-title">About Company</h2>
@@ -207,28 +254,59 @@
                     <div class="box-market" data-aos="fade-right" data-aos-delay="200">
                         <h2 class="ahpek-section-title">Target Market</h2>
                         <p class="ahpek-section-p">
-                            Kolaborasi ini menghadirkan 5 merchandise eksklusif yang menggabungkan nuansa hangat dan nostalgic khas Ah Pek Kopitiam dengan elemen visual ikonik kota Surabaya. Target pasarnya mencakup anak muda yang menyukai desain estetik, pelanggan setia Ah Pek, hingga wisatawan yang mencari oleh-oleh unik.
+                            Kolaborasi ini menghadirkan 5 merchendise eksklusif yang menggabungkan nuansa hangat dan nostalgic khas Ah Pek Kopitiam dengan elemen visual ikonik kota Surabaya, lalu dikemas dalam desain modern yang estetik dan mudah dipakai sehari-hari. Produk ini dibuat untuk memperkuat identitas brand sekaligus menghasilkan kebangaan  terhadap budaya lokal.
+                            <br></br>
+                            Target pasarnya mencakup anak muda yang menyukai desain estetik, pelanggan setia Ah Pek Kopitiam, pecinta visual bertema kota Surabaya, wisatawan yang mencari oleh-oleh unik, serta pekerja urban yang membutuhkan merchedise fungsional dan stylish.
                         </p>
                     </div>
                 </div>
 
                 <div class="logo-side" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="{{ asset('assets/ahpek_logo_main.png') }}" class="ahpek-logo-img" alt="Ah Pek Logo">
+                    <img src="{{ asset('assets/AHPEKLOGO.png') }}" class="ahpek-logo-img" alt="Ah Pek Logo">
                 </div>
-
             </div>
         </section>
 
-        {{-- Section 4: Galeri --}}
+        {{-- Section: Galeri 2 Foto Sejajar --}}
+        <section class="ahpek-split-gallery">
+            <div class="row g-4">
+                <div class="col-md-6 split-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="img-wrapper">
+                        <img src="{{ asset('assets/designkeychain.png') }}" alt="Ah Pek Merch Left">
+                    </div>
+                </div>
+                <div class="col-md-6 split-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="img-wrapper">
+                        <img src="{{ asset('assets/designgelas.png') }}" alt="Ah Pek Merch Right">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- Section 4: Galeri Full Width --}}
         <section class="ahpek-gallery-grid">
             <div class="gallery-item" data-aos="fade-up">
-                <img src="{{ asset('assets/ahpek_illustration.png') }}">
+                <img src="{{ asset('assets/mockupshirt.png') }}" alt="Illustration">
             </div>
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="{{ asset('assets/ahpek_tshirt.png') }}">
-            </div>
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="{{ asset('assets/ahpek_all_merch.png') }}">
+        </section>
+
+
+
+        {{-- Section: 4 Gambar Sejajar Tanpa Putus --}}
+        <section class="ahpek-seamless-gallery">
+            <div class="row g-0">
+                <div class="col-md-3 col-6 seamless-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{{ asset('assets/mockuptumblr.png') }}" alt="Tumbler">
+                </div>
+                <div class="col-md-3 col-6 seamless-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('assets/mockupkeychain.png') }}" alt="Keychain">
+                </div>
+                <div class="col-md-3 col-6 seamless-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="{{ asset('assets/mockupgelas.png') }}" alt="Mug">
+                </div>
+                <div class="col-md-3 col-6 seamless-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="{{ asset('assets/mockuptotebag.png') }}" alt="Totebag">
+                </div>
             </div>
         </section>
 

@@ -511,7 +511,7 @@
         {{-- Section 4: Why Us? --}}
         <section class="why-us-section">
             <div class="container">
-                <h2 class="why-us-title" data-aos="fade-up">Why us?</h2>
+                <h2 class="why-us-title" data-aos="fade-up">Kenapa Kita?</h2>
                 <div class="why-us-grid">
 
                     <div class="why-card" data-aos="fade-up" data-aos-delay="100">

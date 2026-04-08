@@ -51,12 +51,9 @@
             display: inline-flex;
             align-items: center;
             padding: 8px 18px;
-            border-radius: 6px;
-            background: #f261a2;
-            border: 3px solid #8A9165;
             font-weight: 700;
-            font-size: 18px;
-            color: #ffffff;
+            font-size: 25px;
+            color: #394428;
             margin-bottom: 18px;
             gap: 8px;
         }
@@ -251,9 +248,7 @@
         <section class="service-intro">
             <div class="container">
                 <div class="service-tagline-pill">
-                    <span>❝</span>
-                    <span>BrandingMadeSimple</span>
-                    <span>❞</span>
+                    <span>Branding Made Simple</span>
                 </div>
                 <p class="service-intro-text">
                     Inicio membantu brand tumbuh melalui strategi visual yang kuat—mulai dari brand campaign yang berdampak,
@@ -347,10 +342,10 @@
         <section class="cta-strip">
             <div class="container">
                 <h2 class="cta-strip-title">
-                    Interested in our work?
+                    Tertarik dengan projek kami?
                 </h2>
                 <a href="{{ url('/portfolio') }}" class="cta-strip-btn">
-                    Look up our portfolio
+                    Lihat portfolio kita
                 </a>
             </div>
         </section>
