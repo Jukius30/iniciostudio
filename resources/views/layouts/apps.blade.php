@@ -26,8 +26,6 @@
             align-items: center;
             text-decoration: none;
             color: #394428 !important;
-            opacity: 0.5;
-            transition: opacity 0.3s ease-in-out;
         }
 
         .navbar-brand-custom:hover {
@@ -425,13 +423,17 @@
                                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=iniciostudioid@gmail.com"
                                     target="_blank">inicio.studioid@gmail.com</a>
                             </li>
-                            <li><i class="bi bi-telephone-fill"></i> 085103726662</li>
+                            <li><i class="bi bi-telephone-fill"></i>  (+62) 85103726662</li>
                             <li><i class="bi bi-instagram"></i> iniciostudio.id</li>
                             <li><i class="bi bi-linkedin"></i> Inicio Studio</li>
                         </ul>
                     </div>
                 </div>
 
+            </div>
+            <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.2);">
+            <div class="text-center">
+                <p class="mb-0" style="font-size: 0.9rem; opacity: 0.8;">&copy; {{ date('Y') }} INÍCIO STUDIO. All rights reserved.</p>
             </div>
         </div>
     </footer>

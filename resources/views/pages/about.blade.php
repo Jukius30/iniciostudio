@@ -39,7 +39,7 @@
             height: 100vh;
             min-height: 400px;
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                url("{{ asset('assets/workplace-with-pencils-notes.jpg') }}");
+                url("{{ asset('assets/about.png') }}");
             background-size: cover;
             background-position: center;
             display: flex;

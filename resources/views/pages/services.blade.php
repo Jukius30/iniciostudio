@@ -238,7 +238,7 @@
 
         {{-- HERO --}}
         <section class="service-hero">
-            <img src="{{ asset('assets/service.jpg') }}" alt="Branding Made Simple" class="service-hero-full-img">
+            <img src="{{ asset('assets/services.png') }}" alt="Branding Made Simple" class="service-hero-full-img">
             <div class="service-hero-hashtag fw-bold">
                 #BrandingMadeSimple
             </div>

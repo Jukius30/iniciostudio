@@ -53,7 +53,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 80px 60px 100px 60px;
+            padding: 40px 60px;
             color: white;
             position: relative;
         }
@@ -62,41 +62,30 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-title-wrapper,
-        .brand-subtitle-wrapper {
-            width: 100%;
         }
 
         .brand-title-main {
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 5px;
         }
 
         .brand-subtitle-main {
-            font-size: clamp(1.5rem, 2.6vw, 3rem);
+            font-size: clamp(1.5rem, 2.8vw, 3rem);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 36px;
+            margin-bottom: 20px;
             text-align: left;
             white-space: nowrap;
-            /* paksa satu baris */
-            letter-spacing: -0.3px;
         }
 
-        .brand-description-left {
+        .brand-description-text {
             font-size: 1.05rem;
-            line-height: 1.65;
-            text-align: left;
-            max-width: 460px;
+            line-height: 1.6;
             font-weight: 400;
         }
+
 
         .brand-description-left strong,
         .brand-description-right strong {
@@ -119,34 +108,30 @@
         }
 
         .brand-logo-hero {
-            max-width: 220px;
+            max-width: 250px;
             width: 100%;
             height: auto;
-            margin-bottom: 10px;
             filter: brightness(0) invert(1);
         }
 
         .btn-hubungi {
             display: inline-block;
-            margin-top: 40px;
-            padding: 12px 40px;
-            /* Ubah background ke hijau gelap sesuai tema */
-            background-color: #8A9165 !important;
+            margin-top: 30px;
+            padding: 12px 45px;
+            background-color: transparent !important;
             border: 2px solid white;
             border-radius: 15px;
             color: white !important;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
             cursor: pointer;
-
         }
 
         .btn-hubungi:hover {
             background-color: white !important;
             color: #8A9165 !important;
-            text-decoration: none;
         }
 
         /* SEE MORE INDICATOR */
@@ -470,25 +455,27 @@
             }
 
             .brand-content-middle {
-                padding: 80px 32px 100px 32px;
+                padding: 60px 24px;
+            }
+
+            .brand-subtitle-main {
+                white-space: normal;
+                text-align: center;
             }
 
             .brand-title-main,
-            .brand-subtitle-main {
-                white-space: normal;
-                /* boleh wrap di mobile */
+            .brand-description-text {
                 text-align: center;
             }
 
-            .brand-description-left,
-            .brand-description-right {
-                max-width: 100%;
-                text-align: center;
+            .btn-hubungi {
+                margin: 30px auto 0;
+                display: block;
+                width: fit-content;
             }
 
-            .brand-title-wrapper,
-            .brand-subtitle-wrapper {
-                text-align: left;
+            .brand-logo-hero {
+                margin-bottom: 20px;
             }
         }
 
@@ -512,86 +499,56 @@
         {{-- ================= 1. SECTION: HERO HOME ================= --}}
         <section class="brand-section-grid">
 
-            {{-- Left Side Image --}}
             <div class="hero-side-image-left" data-aos="fade-right" data-aos-duration="1000"></div>
 
-            {{-- Middle Content --}}
             <div class="brand-content-middle">
                 <div class="hero-text-wrapper">
-                    <div class="row align-items-center w-100 g-0">
+                    
+                    {{-- Baris 1: Judul Kiri sejajar Logo Kanan (50/50) --}}
+                    <div class="row align-items-center mb-4">
+                        <div class="col-lg-6" data-aos="fade-up">
+                            <h1 class="brand-title-main">Inicio Studio</h1>
+                            <h2 class="brand-subtitle-main">Branding Made Simple</h2>
+                        </div>
+                        <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}" class="brand-logo-hero" alt="Logo">
+                        </div>
+                    </div>
 
-                        {{-- Sisi Kiri --}}
-                        <div class="col-lg-6 d-flex flex-column align-items-start" data-aos="fade-up"
-                            data-aos-duration="900">
-
-                            {{-- Judul dipisah ke div masing-masing agar tidak wrap --}}
-                            <div class="brand-title-wrapper">
-                                <h1 class="brand-title-main">Inicio Studio</h1>
-                            </div>
-                            <div class="brand-subtitle-wrapper">
-                                <h2 class="brand-subtitle-main">Branding Made Simple</h2>
-                            </div>
-
-                            <div class="brand-description-left">
+                    {{-- Baris 2: Deskripsi Kiri sejajar Deskripsi Kanan (50/50) --}}
+                    <div class="row g-5">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="brand-description-text">
                                 <p>
                                     <strong>INICIO Studio</strong> adalah sebuah creative agency yang berfokus pada desain
-                                    brand.
-                                    Kami membantu bisnis baik yang baru memulai maupun yang sudah berjalan untuk membangun
-                                    identitas
-                                    visual dan branding yang profesional, efektif, dan mudah dikenali.
+                                    brand. Kami membantu bisnis baik yang baru memulai maupun yang sudah berjalan untuk membangun
+                                    identitas visual dan branding yang profesional, efektif, dan mudah dikenali.
                                 </p>
                             </div>
-
-                            <button type="button" class="btn-hubungi" data-bs-toggle="modal"
-                                data-bs-target="#contactModal">
+                            <button type="button" class="btn-hubungi" data-bs-toggle="modal" data-bs-target="#contactModal">
                                 Hubungi Kami!
                             </button>
                         </div>
-
-                        {{-- Sisi Kanan --}}
-                        <div class="col-lg-6 d-flex flex-column align-items-center" data-aos="fade-up" data-aos-delay="200"
-                            data-aos-duration="900">
-                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}" class="brand-logo-hero"
-                                alt="Inicio Studio Logo">
-
-                            <div class="brand-description-right">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="brand-description-text">
                                 <p>
                                     <strong>INICIO Studio</strong> hadir sebagai solusi bagi mereka yang belum memahami
-                                    dunia branding atau tidak memiliki waktu untuk mengurus desain, namun ingin
-                                    mengembangkan
-                                    bisnis yang terlihat lebih profesional dan memiliki citra kuat di mata pelanggan.
+                                    dunia branding atau tidak memiliki waktu untuk mengurus desain, namun ingin tampil profesional dan memiliki citra kuat di mata pelanggan.
                                 </p>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
 
-                {{-- See More --}}
-                <a href="#promo-section" class="see-more-container">
+                <a href="#expertise-section" class="see-more-container">
                     <span class="see-more-label">See More</span>
                     <i class="bi bi-chevron-down see-more-icon"></i>
                 </a>
             </div>
 
-            {{-- Right Side Image --}}
             <div class="hero-side-image-right" data-aos="fade-left" data-aos-duration="1000"></div>
 
-        </section>
-
-        {{-- 2. SECTION: PROMO --}}
-        <section class="promo-section" id="promo-section">
-            <div class="container">
-                <div class="promo-wrapper">
-                    <div class="promo-circle-bg"></div>
-                    <div class="promo-badge" data-aos="fade-right">
-                        <h3 class="fw-bold">DISKON</h3>
-                        <div style="font-size: 7rem; font-weight: 900;">20%</div>
-                        <p>Setiap pembelian paket bundling melalui website ini!</p>
-                    </div>
-                    <img src="{{ asset('assets/kenma.png') }}" class="promo-portrait">
-                </div>
-            </div>
         </section>
 
         {{-- 3. SECTION: EXPERTISE --}}
@@ -695,18 +652,11 @@
             <div class="container">
                 <div class="video-frame-container" data-aos="zoom-in" data-aos-duration="1200">
                     <div class="video-aspect-ratio">
-                        <div class="video-background-content">
-                            <img src="{{ asset('assets/INICIOLOGOputih.png') }}"
-                                style="width:100px; filter: brightness(0) invert(1);" alt="Logo">
-                            <h4 style="color:white; font-weight:700; margin-top:10px;">INÍCIO STUDIO</h4>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=mG5YS757YCI" target="_blank" class="video-content-link">
-                            <div style="background: #6B59F2; border-radius: 15px; padding: 20px;">
-                                <svg width="40" height="40" viewBox="0 0 80 80" fill="none">
-                                    <path d="M55 40L32.5 52.9904L32.5 27.0096L55 40Z" fill="white" />
-                                </svg>
-                            </div>
-                        </a>
+                        <iframe width="100%" height="100%" style="position: absolute; top: 0; left: 0; border: none;"
+                            src="https://www.youtube.com/embed/mG5YS757YCI" title="INICIO STUDIO"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
