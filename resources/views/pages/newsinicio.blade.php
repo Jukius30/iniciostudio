@@ -173,6 +173,10 @@
         }
     </style>
 
+    <div style="max-width: 900px; margin: 40px auto 0; padding: 0 20px;" data-aos="fade-right">
+        <a href="/insight" class="btn-back">← Kembali ke Insight</a>
+    </div>
+
     <div class="news-page-wrapper">
         
         <header class="news-header" data-aos="fade-down">

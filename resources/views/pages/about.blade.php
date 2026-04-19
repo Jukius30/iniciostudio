@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            /* Pastikan overflow hanya aktif satu di body utama */
             overflow-x: hidden;
             overflow-y: auto;
             height: auto;
@@ -21,12 +20,10 @@
 
         .about-page-wrapper {
             background-color: #D0C1A7;
-            /* Hapus overflow-x: hidden jika ada di sini yang memicu kontainer baru */
             width: 100%;
             position: relative;
         }
 
-        /* Reset padding khusus konten agar tidak merusak Navbar apps.blade.php */
         .about-page-wrapper .container-fluid {
             padding: 0 !important;
             margin: 0 !important;
@@ -118,6 +115,7 @@
             width: 100%;
             position: relative;
             background-color: #D0C1A7;
+            overflow: hidden;
         }
 
         .team-full-width-container {
@@ -130,6 +128,8 @@
             width: 100%;
             height: auto;
             display: block;
+            min-height: 300px;
+            object-fit: cover;
         }
 
         .team-overlay-content {
@@ -155,10 +155,10 @@
 
         .member-name {
             position: absolute;
-            font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+            font-size: clamp(0.7rem, 1.5vw, 1.3rem);
             font-weight: 600;
             color: #ffffff;
-            padding: 10px 30px;
+            padding: 8px 20px;
             background-color: transparent;
             border: 2px solid rgba(255, 255, 255, 0.8);
             border-radius: 50px;
@@ -169,15 +169,16 @@
             align-items: center;
             gap: 12px;
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
         }
 
         .member-name::before {
             content: '';
             width: 0;
             height: 0;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-            border-right: 10px solid white;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 8px solid white;
             display: inline-block;
         }
 
@@ -188,30 +189,16 @@
             text-shadow: none;
         }
 
-        .name-nathan {
-            top: 40%;
-            left: 30%;
-        }
-
-        .name-dyllan {
-            top: 72%;
-            left: 45%;
-        }
-
-        .name-victor {
-            top: 62%;
-            left: 62%;
-        }
-
-        .name-kennan {
-            top: 46%;
-            left: 80%;
-        }
+        /* Posisi Tim (Desktop Default) */
+        .name-nathan { top: 40%; left: 30%; }
+        .name-dyllan { top: 72%; left: 45%; }
+        .name-victor { top: 62%; left: 62%; }
+        .name-kennan { top: 46%; left: 80%; }
 
         /* ================= 5. SECTION: WHY US ================= */
         .why-us-section {
             background-color: #394428;
-            padding: 100px 0;
+            padding: clamp(60px, 10vw, 100px) 0;
             text-align: center;
             color: white;
         }
@@ -219,7 +206,7 @@
         .why-us-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
-            margin-bottom: 80px;
+            margin-bottom: clamp(40px, 8vw, 80px);
         }
 
         .why-us-grid {
@@ -227,6 +214,7 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
+            padding: 0 20px;
         }
 
         .why-card {
@@ -264,7 +252,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            transform: translateY(0);
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             z-index: 2;
             padding: 50px;
@@ -346,10 +333,11 @@
 
         .contact-form-wrapper {
             flex: 1.2;
+            width: 100%;
         }
 
         .contact-form-wrapper h2 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
             margin-bottom: 40px;
         }
@@ -360,7 +348,7 @@
 
         .form-group label {
             display: block;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
@@ -398,6 +386,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
 
         .contact-logo {
@@ -455,13 +444,30 @@
             }
 
             .why-card {
-                width: 90%;
+                width: 100%;
+                max-width: 350px;
             }
 
             .contact-container {
                 flex-direction: column;
                 gap: 60px;
             }
+            
+            .contact-form-wrapper, .contact-info-wrapper {
+                flex: none;
+            }
+
+            /* Adjust Team Names for Mobile */
+            .name-nathan { top: 40%; left: 10%; }
+            .name-dyllan { top: 72%; left: 20%; }
+            .name-victor { top: 62%; left: 55%; }
+            .name-kennan { top: 46%; left: 65%; }
+        }
+
+        @media (max-width: 576px) {
+            .team-bg-img { min-height: 450px; object-position: 70%; }
+            .member-name { padding: 6px 12px; }
+            .team-title-inside { margin-top: 15%; }
         }
     </style>
 
@@ -497,7 +503,7 @@
             <div class="team-full-width-container">
                 <img src="{{ asset('assets/grup.jpg') }}" class="team-bg-img" alt="Team">
                 <div class="team-overlay-content">
-                    <h2 class="team-title-inside">Meet The Team</h2>
+                    <h2 class="team-title-inside">Kenali Tim Kami</h2>
                     <div class="team-overlay-names">
                         <div class="member-name name-nathan">Nathan</div>
                         <div class="member-name name-dyllan">Dyllan</div>
@@ -565,27 +571,27 @@
         <section class="contact-section">
             <div class="contact-container">
                 <div class="contact-form-wrapper" data-aos="fade-right">
-                    <h2>Come work with us</h2>
+                    <h2>Ayao Berkerja Sama dengan Kami</h2>
                     <form action="{{ route('contact.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Nama</label>
                             <input type="text" name="name" class="form-control-custom" placeholder="Name" required>
                         </div>
                         <div class="form-group">
-                            <label>Email Address</label>
+                            <label>Alamat Email</label>
                             <input type="email" name="email" class="form-control-custom" placeholder="Email Address"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label>Subject</label>
+                            <label>Subjek</label>
                             <input type="text" name="subject" class="form-control-custom" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <label>Message</label>
+                            <label>Pesan</label>
                             <textarea name="message" class="form-control-custom" rows="5" placeholder="Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn-send">Send message</button>
+                        <button type="submit" class="btn-send">Kirim Pesan</button>
                     </form>
                 </div>
                 <div class="contact-info-wrapper" data-aos="fade-left">
@@ -594,8 +600,8 @@
                         <div class="info-item"><i class="bi bi-envelope-fill"></i><a
                                 href="mailto:inicio.studioid@gmail.com">inicio.studioid@gmail.com</a></div>
                         <div class="info-item"><i class="bi bi-whatsapp"></i><span>085103726662</span></div>
-                        <div class="info-item"><i class="bi bi-instagram"></i><a href="#">iniciostudio.id</a></div>
-                        <div class="info-item"><i class="bi bi-linkedin"></i><span>Inicio Studio</span></div>
+                        <div class="info-item"><i class="bi bi-instagram"></i><a href="https://www.instagram.com/iniciostudio.id/" target="_blank">iniciostudio.id</a></div>
+                        <div class="info-item"><i class="bi bi-linkedin"></i><span><a href="https://www.linkedin.com/in/inicio-studio-a086b5325/?skipRedirect=true" target="_blank">Inicio Studio</a></span></div>
                     </div>
                 </div>
             </div>
@@ -604,7 +610,7 @@
         {{-- Section 6: Map --}}
         <section class="map-section" data-aos="fade-up">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.510360667825!2d112.62902407585695!3d-7.285112171597813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fd4455555555%3A0xb7e2611ae591f046!2sUniversitas%20Ciputra%20Surabaya!5e0!3m2!1sid!2sid!4v1711863500000!5m2!1sid!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.691924846467!2d112.63953767476059!3d-7.275841892731057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fdf0084323e7%3A0xc3f345c22538f5f4!2sUniversitas%20Ciputra%20Surabaya!5e0!3m2!1sid!2sid!4v1714440000000!5m2!1sid!2sid"
                 width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>

@@ -6,14 +6,18 @@
 
     <style>
         /* ================= 1. GLOBAL SETTINGS & SCROLL FIX ================= */
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Hanya mengunci scroll horizontal */
-            overflow-y: auto;   /* Memastikan scroll vertikal aktif */
+            overflow-x: hidden;
+            /* Hanya mengunci scroll horizontal */
+            overflow-y: auto;
+            /* Memastikan scroll vertikal aktif */
             background-color: #D0C1A7 !important;
             font-family: 'League Spartan', sans-serif;
-            height: auto;       /* Menghindari lock pada tinggi layar */
+            height: auto;
+            /* Menghindari lock pada tinggi layar */
         }
 
         .gws-page-wrapper {
@@ -32,9 +36,10 @@
         .gws-header {
             position: relative;
             width: 100%;
-            min-height: 100vh; /* Menggunakan min-height agar tidak mengunci scroll */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                              url("{{ asset('assets/Macbook_Air_M2_Mockup_2.png') }}");
+            min-height: 100vh;
+            /* Menggunakan min-height agar tidak mengunci scroll */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url("{{ asset('assets/Macbook_Air_M2_Mockup_2.png') }}");
             background-size: cover;
             background-position: center;
             display: flex;
@@ -49,6 +54,41 @@
             font-weight: 800;
             letter-spacing: 0.05em;
             text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.45);
+        }
+
+        .gws-header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+            /* Menjaga lebar kotak agar tidak terlalu lebar */
+            padding: 20px;
+        }
+
+        .about-box-hero {
+            background-color: rgba(57, 68, 40, 0.75);
+            /* Warna hijau dengan opacity 0.75 */
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            /* Membuat kotak rounded */
+            text-align: center;
+            backdrop-filter: blur(5px);
+            /* Opsional: memberikan efek blur pada background di belakang kotak */
+        }
+
+        .about-box-hero h2 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about-box-hero p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0;
         }
 
         /* ================= 3. SECTION: INTRO ================= */
@@ -80,13 +120,13 @@
         /* ================= 4. CORE LAYOUT ================= */
         .gws-main-container {
             max-width: 1100px;
-            margin: 0 auto 100px;
+            margin: 80px auto;
             padding: 0 20px;
         }
 
         .flex-layout-wrapper {
             display: flex;
-            align-items: center; 
+            align-items: center;
             justify-content: space-between;
             gap: 40px;
         }
@@ -99,25 +139,32 @@
 
         .logo-side {
             flex: 0.8;
+            /* Area logo */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .green-box-about {
-            background-color: #394428; 
+            background-color: #394428;
             color: white;
             padding: 50px 40px;
+            opacity: 0.95;
         }
 
         .brown-box-market {
             background-color: #E2D5BE;
             padding: 50px 40px;
             color: #394428;
+            flex: 1.2;
+            /* Kotak teks lebih lebar */
+            border-radius: 10px;
+            /* Opsional: sedikit rounded agar senada */
         }
 
         .gws-logo-v-img {
-            max-width: 320px;
+            max-width: 350px;
+            /* Ukuran logo sesuai gambar */
             width: 100%;
             height: auto;
         }
@@ -128,7 +175,7 @@
             gap: 15px;
             justify-content: center;
         }
-        
+
         .social-icons-wrapper i {
             font-size: 1.5rem;
             color: #394428;
@@ -147,7 +194,7 @@
         .gallery-item img {
             width: 100%;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             display: block;
         }
 
@@ -178,50 +225,74 @@
 
         /* Responsive */
         @media (max-width: 991px) {
-            .flex-layout-wrapper { flex-direction: column; }
-            .logo-side { order: -1; margin-bottom: 30px; }
-            .gws-header { min-height: 60vh; }
+            .flex-layout-wrapper {
+                flex-direction: column;
+            }
+
+            .logo-side {
+                order: 2;
+            }
+
+            .gws-header {
+                min-height: 60vh;
+            }
+
         }
     </style>
 
     <div class="gws-page-wrapper">
-        
+
         {{-- Section 1: Hero Header --}}
         <section class="gws-header">
-            <h1 class="gws-header-title" data-aos="zoom-out">GasWaraS</h1>
+            <div class="gws-header-content">
+                {{-- Teks Judul Utama --}}
+                <h1 class="gws-header-title" data-aos="zoom-out">GasWaraS</h1>
+
+                {{-- Kotak Deskripsi di bawah teks GasWaraS --}}
+                <div class="about-box-hero" data-aos="fade-up" data-aos-delay="300">
+                    <h2>Tentang GasWaraS</h2>
+                    <p>
+                        GasWaraS Design Agency adalah agensi desain yang fokus pada pembuatan desain untuk para kreator
+                        konten. Kami bertujuan untuk mengatasi tantangan yang dihadapi oleh para kreator konten yang
+                        kesulitan dalam mendesain dan mengedit video, sehingga klien kami dapat lebih mudah fokus pada
+                        pembuatan konten itu sendiri.
+                    </p>
+                </div>
+            </div>
         </section>
 
         {{-- Section 2: Intro --}}
         <section class="gws-intro-section">
             <div class="container" data-aos="fade-up">
-                <div class="gws-intro-pill">Design Agency</div>
             </div>
         </section>
 
-        {{-- Section 4: CORE CONTENT --}}
+        {{-- Section 4: CORE CONTENT (Target Pasar & Logo) --}}
         <section class="gws-main-container">
-            <div class="flex-layout-wrapper">
-                <div class="text-side">
-                    <div class="green-box-about" data-aos="fade-right">
-                        <h2 style="font-weight: 700; font-size: 2.5rem; margin-bottom: 15px;">About Company</h2>
-                        <p style="text-align: justify; line-height: 1.7;">
-                            GaswWaraS Desagn Agency is a desaign agency that focuses on creating desaigns for content creators. We aim to solve the challenges faced by content creators who struggle with designing and video editing, allowing our clients to focus more easily on content creation itself.
-                        </p>
-                    </div>
+            <div class="flex-layout-wrapper align-items-center">
 
-                    <div class="brown-box-market" data-aos="fade-right" data-aos-delay="200">
-                        <h2 style="font-weight: 700; font-size: 2.5rem; margin-bottom: 15px;">Target Market</h2>
-                        <p style="text-align: justify; line-height: 1.7;">
-                            The target market of GasWaraS Desaign Agency is content creators across Indonesia who lack the skills or time to handle design tasks on their own. So it comes to GasWaraS to help alleviate time for the content creators.
-                            <br></br>
-                            This agency is particularly appealing to content creators as its primary target market by focusing on segments needed by content creators, such as editing, logos, mascots, or merchendise.
+                {{-- Sisi Kiri: Kotak Target Pasar --}}
+                <div class="text-side" data-aos="fade-right">
+                    <div class="brown-box-market" style="border-radius: 20px;">
+                        <h2 style="font-weight: 700; font-size: 2.8rem; margin-bottom: 15px;">Target Pasar</h2>
+                        <p style="text-align: justify; line-height: 1.7; font-size: 1.1rem;">
+                            Target pasar GasWaraS Design Agency adalah para kreator konten di seluruh Indonesia yang
+                            kekurangan keterampilan atau waktu untuk menangani tugas desain sendiri. Oleh karena itu,
+                            GasWaraS hadir untuk membantu meringankan beban para kreator konten.
+                            <br><br>
+                            Agensi ini sangat menarik bagi para kreator konten sebagai target pasar utamanya dengan berfokus
+                            pada segmen yang dibutuhkan oleh para kreator konten, seperti pengeditan, logo, maskot, atau
+                            merchandise.
                         </p>
                     </div>
                 </div>
 
+                {{-- Sisi Kanan: Logo GWS --}}
                 <div class="logo-side" data-aos="zoom-in" data-aos-delay="300">
+                    {{-- PASTIKAN NAMA FILE DI PUBLIC/ASSETS ADALAH LOGODESIGNAGENCY.png --}}
                     <img src="{{ asset('assets/LOGODESIGNAGENCY.png') }}" class="gws-logo-v-img" alt="GWS Logo">
                 </div>
+
             </div>
         </section>
 
@@ -238,17 +309,24 @@
         {{-- SECTION 6: NAVIGATION BUTTON --}}
         <section class="next-portfolio-wrapper">
             <a href="{{ url('/ah-pek-kopitiam') }}" class="btn-next-portfolio" data-aos="fade-up">
-                See next portfolio
+                Lihat portfolio berikutnya
             </a>
         </section>
+
+        {{-- Tombol Kembali --}}
+        <div style="text-align:center; padding: 30px 0 10px;">
+            <a href="{{ url('/portfolio') }}" class="btn-next-portfolio" data-aos="fade-up">
+            <i class="bi bi-arrow-left"></i> Kembali
+            </a>
+        </div>
 
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({ 
-                once: true, 
+            AOS.init({
+                once: true,
                 duration: 800,
                 disable: 'mobile' // Opsional: matikan AOS di mobile jika masih terasa berat
             });

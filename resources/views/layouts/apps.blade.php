@@ -18,18 +18,20 @@
         /* ================= GLOBAL FONT ================= */
         body {
             font-family: "League Spartan", sans-serif;
+            overflow-x: hidden;
         }
 
         /* ================= NAVBAR STYLE ================= */
+        .navbar-custom {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
         .navbar-brand-custom {
             display: flex;
             align-items: center;
             text-decoration: none;
             color: #394428 !important;
-        }
-
-        .navbar-brand-custom:hover {
-            opacity: 1;
         }
 
         .navbar-brand-custom img {
@@ -49,6 +51,7 @@
             font-weight: 700;
             opacity: 0.5;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-link:hover {
@@ -59,19 +62,21 @@
             color: #8A9165 !important;
             opacity: 1 !important;
             font-weight: 800 !important;
-            position: relative;
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 28px;
-            height: 3px;
-            background: #8A9165;
-            border-radius: 4px;
+        /* Active Indicator (Desktop Only) */
+        @media (min-width: 992px) {
+            .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 28px;
+                height: 3px;
+                background: #8A9165;
+                border-radius: 4px;
+            }
         }
 
         /* ================= FLOATING SOCIAL BAR ================= */
@@ -79,7 +84,6 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            left: auto !important;
             display: flex;
             gap: 15px;
             z-index: 9999;
@@ -156,7 +160,6 @@
             background-color: #8A9165;
             color: white;
             padding: 80px 0;
-            font-family: 'League Spartan', sans-serif;
         }
 
         .footer-brand-title {
@@ -171,7 +174,6 @@
             line-height: 1.6;
             text-align: justify;
             margin-bottom: 0;
-            max-width: 100%;
         }
 
         .align-with-text {
@@ -205,90 +207,52 @@
             --bs-gutter-x: 5rem;
         }
 
-        /* ================= RESPONSIVE (HP) ================= */
+        /* ================= RESPONSIVE ADJUSTMENTS ================= */
         @media (max-width: 991.98px) {
-            /* Header / Navbar Mobile */
-            header .d-flex {
-                flex-direction: column;
-                padding: 15px 0;
+            .navbar-brand-text {
+                font-size: 18px;
             }
-
-            .navbar-brand-custom {
-                margin-bottom: 15px;
+            .navbar-collapse {
+                background: #f8f9fa;
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 10px;
             }
-
-            .nav {
-                justify-content: center;
-                gap: 5px;
-            }
-
             .nav-link {
-                padding: 8px 10px !important;
-                font-size: 14px;
+                padding: 10px 0 !important;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
             }
-
-            .nav-link.active::after {
-                width: 20px;
-                bottom: 2px;
+            .nav-link:last-child {
+                border-bottom: none;
             }
-
-            /* Floating Bar Mobile */
+            .footer-inicio {
+                padding: 50px 20px;
+                text-align: center;
+            }
+            .footer-desc {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .align-with-text {
+                margin-top: 0;
+            }
+            .footer-contact-list li {
+                justify-content: center;
+            }
+            .equal-gap-row {
+                --bs-gutter-x: 1.5rem;
+            }
+            .d-flex.align-items-center.mb-3 {
+                justify-content: center;
+            }
             .floating-social-bar {
                 bottom: 20px;
                 right: 20px;
                 padding: 8px 15px;
                 gap: 10px;
             }
-
             .social-icon-btn {
                 font-size: 1.3rem;
-            }
-
-            /* Footer Mobile */
-            .footer-inicio {
-                padding: 50px 20px;
-                text-align: center;
-            }
-
-            .footer-brand-title {
-                font-size: 1.5rem;
-            }
-
-            .footer-desc {
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            .align-with-text {
-                margin-top: 0;
-            }
-
-            .footer-contact-list li {
-                justify-content: center;
-            }
-
-            .equal-gap-row {
-                --bs-gutter-x: 1.5rem;
-            }
-
-            .d-flex.align-items-center.mb-3 {
-                justify-content: center;
-            }
-
-            /* Modal Mobile */
-            .contact-modal-body {
-                padding: 20px !important;
-            }
-
-            .contact-info-list {
-                text-align: center !important;
-                margin-top: 30px;
-            }
-
-            .contact-info-list p {
-                justify-content: center;
-                display: flex;
-                align-items: center;
             }
         }
     </style>
@@ -298,30 +262,25 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-    <header class="bg-light border-bottom sticky-top">
+    <header class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container-fluid px-md-5">
-            <div class="d-flex align-items-center justify-content-between py-2">
+            <a href="{{ url('/') }}" class="navbar-brand-custom">
+                <img src="{{ asset('assets/INICIOLOGO.png') }}" alt="Logo">
+                <div class="navbar-brand-text">INÍCIO STUDIO</div>
+            </a>
 
-                <a href="{{ url('/') }}" class="navbar-brand-custom">
-                    <img src="{{ asset('assets/INICIOLOGO.png') }}" alt="Logo">
-                    <div class="navbar-brand-text">INÍCIO STUDIO</div>
-                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <nav class="nav">
-                    <a class="nav-link px-3 {{ request()->is('about') ? 'active' : '' }}"
-                        href="{{ url('/about') }}">About</a>
-                    <a class="nav-link px-3 {{ request()->is('services') ? 'active' : '' }}"
-                        href="{{ url('/services') }}">Services</a>
-                    <a class="nav-link px-3 {{ request()->is('portfolio') ? 'active' : '' }}"
-                        href="{{ url('/portfolio') }}">Portfolio</a>
-                    <a class="nav-link px-3 {{ request()->is('insight') ? 'active' : '' }}"
-                        href="{{ url('/insight') }}">Insight</a>
-
-                    <a class="nav-link px-3" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
-                        Contact
-                    </a>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <nav class="navbar-nav ms-auto">
+                    <a class="nav-link px-3 {{ request()->is('about') ? 'active' : '' }}" href="{{ url('/about') }}">About</a>
+                    <a class="nav-link px-3 {{ request()->is('services') ? 'active' : '' }}" href="{{ url('/services') }}">Services</a>
+                    <a class="nav-link px-3 {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ url('/portfolio') }}">Portfolio</a>
+                    <a class="nav-link px-3 {{ request()->is('insight') ? 'active' : '' }}" href="{{ url('/insight') }}">Insight</a>
+                    <a class="nav-link px-3" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
                 </nav>
-
             </div>
         </div>
     </header>
@@ -331,41 +290,39 @@
     </main>
 
     <div class="floating-social-bar" id="social-bar">
-        <a href="https://instagram.com/iniciostudio.id" target="_blank" class="social-icon-btn"><i
-                class="bi bi-instagram"></i></a>
-        <a href="#" target="_blank" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
-        <a href="#" target="_blank" class="social-icon-btn"><i class="bi bi-youtube"></i></a>
+        <a href="https://instagram.com/iniciostudio.id" target="_blank" class="social-icon-btn"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/inicio-studio-a086b5325/?skipRedirect=true" target="_blank" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.youtube.com/watch?v=mG5YS757YCI" target="_blank" class="social-icon-btn"><i class="bi bi-youtube"></i></a>
     </div>
 
     <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content contact-modal-body shadow-lg">
                 <div class="modal-body p-4 p-md-5">
-                    <button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     <div class="row align-items-center">
                         <div class="col-lg-7">
-                            <h2 class="fw-bold text-white mb-4" style="font-size: 2rem;">Come work with us</h2>
+                            <h2 class="fw-bold text-white mb-4" style="font-size: 2rem;">Ayao Berkerja Sama dengan Kami</h2>
                             <form action="{{ route('contact.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label class="text-white small fw-bold mb-1">Name</label>
+                                    <label class="text-white small fw-bold mb-1">Nama</label>
                                     <input type="text" name="name" class="contact-input" placeholder="Name" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="text-white small fw-bold mb-1">Email Adress</label>
+                                    <label class="text-white small fw-bold mb-1">Alamat Email</label>
                                     <input type="email" name="email" class="contact-input" placeholder="Email Adress" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="text-white small fw-bold mb-1">Subject</label>
+                                    <label class="text-white small fw-bold mb-1">Subjek</label>
                                     <input type="text" name="subject" class="contact-input" placeholder="Subject" required>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="text-white small fw-bold mb-1">Message</label>
+                                    <label class="text-white small fw-bold mb-1">Pesan</label>
                                     <textarea name="message" class="contact-input" rows="3" placeholder="Message" required></textarea>
                                 </div>
-                                <button type="submit" class="btn-send-message w-100">Send message</button>
+                                <button type="submit" class="btn-send-message w-100">Kirim Pesan</button>
                             </form>
                         </div>
                         <div class="col-lg-5 text-white ps-lg-5 mt-5 mt-lg-0 text-center text-lg-start">
@@ -375,9 +332,9 @@
                             </div>
                             <div class="contact-info-list text-start">
                                 <p><i class="bi bi-envelope-fill me-3"></i> inicio.studioid@gmail.com</p>
-                                <p><i class="bi bi-telephone-fill me-3"></i> 085103726662</p>
-                                <p><i class="bi bi-instagram me-3"></i> iniciostudio.id</p>
-                                <p><i class="bi bi-linkedin me-3"></i> Inicio Studio</p>
+                                <p class="text-white"><i class="bi bi-whatsapp me-3"></i> <a href="https://wa.me/6285103726662" target="_blank" class="text-white text-decoration-none">(+62) 85103726662</a></p>
+                                <p class="text-white"><i class="bi bi-instagram me-3"></i> <a href="https://www.instagram.com/iniciostudio.id/" target="_blank" class="text-white text-decoration-none">iniciostudio.id</a></p>
+                                <p class="text-white"><i class="bi bi-linkedin me-3"></i> <a href="https://www.linkedin.com/in/inicio-studio-a086b5325/?skipRedirect=true" target="_blank" class="text-white text-decoration-none">Inicio Studio</a></p>
                             </div>
                         </div>
                     </div>
@@ -423,9 +380,9 @@
                                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=iniciostudioid@gmail.com"
                                     target="_blank">inicio.studioid@gmail.com</a>
                             </li>
-                            <li><i class="bi bi-telephone-fill"></i>  (+62) 85103726662</li>
-                            <li><i class="bi bi-instagram"></i> iniciostudio.id</li>
-                            <li><i class="bi bi-linkedin"></i> Inicio Studio</li>
+                            <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/6285103726662" target="_blank">(+62) 85103726662</a></li>
+                            <li><i class="bi bi-instagram"></i> <a href="https://www.instagram.com/iniciostudio.id/" target="_blank">iniciostudio.id</a></li>
+                            <li><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/inicio-studio-a086b5325/?skipRedirect=true" target="_blank">Inicio Studio</a></li>
                         </ul>
                     </div>
                 </div>

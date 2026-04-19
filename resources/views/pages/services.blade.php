@@ -58,12 +58,25 @@
             gap: 8px;
         }
 
+        .service-tagline-pill span {
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            /* Memberikan kesan tegas dan premium */
+            font-size: 22px;
+        }
+
         .service-intro-text {
-            max-width: 560px;
+            max-width: 700px;
+            /* Sedikit lebih lebar agar line-break lebih alami */
             margin: 0 auto;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #333;
+            font-size: 1.1rem;
+            /* Ukuran naik sedikit agar nyaman di mata */
+            line-height: 1.8;
+            /* Menambah ruang antar baris agar tidak sesak */
+            color: #2D2D2D;
+            /* Warna abu gelap yang lebih solid dibanding #333 */
+            letter-spacing: 0.01em;
+            font-weight: 400;
         }
 
         /* ===== FRAME 1 / CAROUSEL LAYANAN (TIDAK DIUBAH) ===== */
@@ -95,6 +108,7 @@
             position: relative;
             cursor: pointer;
             margin: 0 8px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .service-card-img {
@@ -104,10 +118,17 @@
             opacity: 0.75;
             transition: opacity 0.25s ease;
             display: block;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .service-card:hover .service-card-img {
             opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .service-card-overlay {
@@ -117,41 +138,53 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            padding: 20px 18px;
+            padding: 30px 20px;
             text-align: center;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-            pointer-events: none;
+            /* Gradient lebih pekat di bawah (hitam 80%) ke transparan */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            transition: background 0.4s ease;
         }
 
         .service-card-title {
             font-weight: 800;
-            font-size: 18px;
-            margin-bottom: 6px;
-            color: rgba(255, 255, 255, 0.70);
-            transition: color 0.25s ease;
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #ffffff;
+            /* Putih solid */
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
         .service-card-subtitle {
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            /* Putih agak transparan agar elegan */
             max-width: 90%;
-            color: rgba(255, 255, 255, 0.55);
-            transition: color 0.25s ease, opacity 0.25s ease;
+            margin: 0 auto;
+            /* Memberikan efek halus saat muncul */
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-card-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 100%);
         }
 
         .service-card:hover .service-card-title,
         .service-card:hover .service-card-subtitle {
             color: #ffffff;
+            transform: translateY(-2px);
         }
 
-        #servicesCarousel .carousel-inner {
-            padding: 10px 0;
+        #servicesCarousel .carousel-inner .carousel-item {
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
         }
 
         #servicesCarousel .carousel-item.active,
         #servicesCarousel .carousel-item-next,
         #servicesCarousel .carousel-item-prev {
-            display: flex;
+            display: flex !important;
         }
 
         #servicesCarousel .carousel-item>div {
@@ -177,8 +210,13 @@
             transform: translateY(-50%);
         }
 
-        #servicesCarousel .carousel-control-prev { left: -40px; }
-        #servicesCarousel .carousel-control-next { right: -40px; }
+        #servicesCarousel .carousel-control-prev {
+            left: -40px;
+        }
+
+        #servicesCarousel .carousel-control-next {
+            right: -40px;
+        }
 
         #servicesCarousel .carousel-control-prev-icon,
         #servicesCarousel .carousel-control-next-icon {
@@ -187,12 +225,19 @@
             filter: invert(1);
         }
 
+        @media (max-width: 767.98px) {
+            .service-intro-text {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+        }
+
         /* ===== CTA STRIP DENGAN BACKGROUND GAMBAR STATIC ===== */
         .cta-strip {
             position: relative;
             /* Background Gambar Static (Berpindah saat scroll biasa) */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                              url("{{ asset('assets/mockupgelas.png') }}");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("{{ asset('assets/mockupgelas.png') }}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -205,7 +250,7 @@
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 18px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .cta-strip-btn {
@@ -227,10 +272,24 @@
         }
 
         @media (max-width: 767.98px) {
-            .service-hero-hashtag { font-size: 22px; white-space: normal; text-align: center; }
-            #servicesCarousel .carousel-item>div { flex: 0 0 100%; max-width: 100%; }
-            #servicesCarousel .carousel-control-prev { left: 0; }
-            #servicesCarousel .carousel-control-next { right: 0; }
+            .service-hero-hashtag {
+                font-size: 22px;
+                white-space: normal;
+                text-align: center;
+            }
+
+            #servicesCarousel .carousel-item>div {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            #servicesCarousel .carousel-control-prev {
+                left: 0;
+            }
+
+            #servicesCarousel .carousel-control-next {
+                right: 0;
+            }
         }
     </style>
 
@@ -263,7 +322,8 @@
             <div class="container">
                 <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true"></button>
                         <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="2"></button>
                         <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="3"></button>
@@ -274,10 +334,11 @@
                         <div class="carousel-item active">
                             <div class="col-12 col-md-4">
                                 <div class="service-card">
-                                    <img src="{{ asset('assets/servis5.jpg') }}" class="service-card-img">
+                                    <img src="{{ asset('assets/visual.png') }}" class="service-card-img">
                                     <div class="service-card-overlay">
                                         <div class="service-card-title">Visual Branding</div>
-                                        <div class="service-card-subtitle">Perancangan logo, sistem identitas visual, dan guideline yang konsisten.</div>
+                                        <div class="service-card-subtitle">Perancangan logo, sistem identitas visual, dan
+                                            guideline yang konsisten.</div>
                                     </div>
                                 </div>
                             </div>
@@ -285,10 +346,11 @@
                         <div class="carousel-item">
                             <div class="col-12 col-md-4">
                                 <div class="service-card">
-                                    <img src="{{ asset('assets/servis4.jpg') }}" class="service-card-img">
+                                    <img src="{{ asset('assets/branding.png') }}" class="service-card-img">
                                     <div class="service-card-overlay">
                                         <div class="service-card-title">Brand Campaign</div>
-                                        <div class="service-card-subtitle">Seasonal & launch campaign yang dirancang untuk audiens yang tepat.</div>
+                                        <div class="service-card-subtitle">Seasonal & launch campaign yang dirancang untuk
+                                            audiens yang tepat.</div>
                                     </div>
                                 </div>
                             </div>
@@ -296,10 +358,11 @@
                         <div class="carousel-item">
                             <div class="col-12 col-md-4">
                                 <div class="service-card">
-                                    <img src="{{ asset('assets/servis3.jpg') }}" class="service-card-img">
+                                    <img src="{{ asset('assets/sosialmedia.png') }}" class="service-card-img">
                                     <div class="service-card-overlay">
                                         <div class="service-card-title">Social Media Content</div>
-                                        <div class="service-card-subtitle">Konten visual & copy yang konsisten dan engaging di berbagai platform.</div>
+                                        <div class="service-card-subtitle">Konten visual & copy yang konsisten dan engaging
+                                            di berbagai platform.</div>
                                     </div>
                                 </div>
                             </div>
@@ -307,10 +370,11 @@
                         <div class="carousel-item">
                             <div class="col-12 col-md-4">
                                 <div class="service-card">
-                                    <img src="{{ asset('assets/servis2.jpg') }}" class="service-card-img">
+                                    <img src="{{ asset('assets/fotografi.png') }}" class="service-card-img">
                                     <div class="service-card-overlay">
                                         <div class="service-card-title">Photography</div>
-                                        <div class="service-card-subtitle">Photo session yang memperkuat storytelling brand.</div>
+                                        <div class="service-card-subtitle">Photo session yang memperkuat storytelling brand.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -318,20 +382,23 @@
                         <div class="carousel-item">
                             <div class="col-12 col-md-4">
                                 <div class="service-card">
-                                    <img src="{{ asset('assets/servis1.jpg') }}" class="service-card-img">
+                                    <img src="{{ asset('assets/counseling.png') }}" class="service-card-img">
                                     <div class="service-card-overlay">
                                         <div class="service-card-title">Consulting</div>
-                                        <div class="service-card-subtitle">Pendampingan strategi branding agar identitas brand menjadi lebih jelas.</div>
+                                        <div class="service-card-subtitle">Pendampingan strategi branding agar identitas
+                                            brand menjadi lebih jelas.</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </button>
                 </div>
@@ -345,7 +412,7 @@
                     Tertarik dengan projek kami?
                 </h2>
                 <a href="{{ url('/portfolio') }}" class="cta-strip-btn">
-                    Lihat portfolio kita
+                    Lihat portofolio kita
                 </a>
             </div>
         </section>
@@ -354,16 +421,32 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('#servicesCarousel');
-            const items = carousel.querySelectorAll('.carousel-item');
+            const carouselEl = document.querySelector('#servicesCarousel');
+
+            // Inisialisasi Manual Bootstrap Carousel untuk kontrol lebih detail
+            const carousel = new bootstrap.Carousel(carouselEl, {
+                interval: 4000, // Waktu antar slide (4 detik)
+                pause: 'hover', // Berhenti saat mouse di atasnya
+                ride: 'carousel'
+            });
+
+            const items = carouselEl.querySelectorAll('.carousel-item');
             const minPerSlide = 3;
 
             items.forEach((el) => {
-                let next = el.nextElementSibling || items[0];
+                let next = el.nextElementSibling;
+                if (!next) {
+                    next = items[0];
+                }
+
                 for (let i = 1; i < minPerSlide; i++) {
-                    const cloneChild = next.firstElementChild.cloneNode(true);
+                    // Gunakan cloneNode(true) tapi pastikan class active tidak ikut ter-clone di dalam inner
+                    let cloneChild = next.firstElementChild.cloneNode(true);
                     el.appendChild(cloneChild);
-                    next = next.nextElementSibling || items[0];
+                    next = next.nextElementSibling;
+                    if (!next) {
+                        next = items[0];
+                    }
                 }
             });
         });

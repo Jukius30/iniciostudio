@@ -22,7 +22,8 @@
         .portfolio-hero-section {
             position: relative;
             width: 100%;
-            height: 100vh; /* Mengikuti tinggi page About */
+            height: 100vh;
+            /* Mengikuti tinggi page About */
             min-height: 500px;
             overflow: hidden;
             display: flex;
@@ -31,8 +32,8 @@
             color: #ffffff;
             text-align: center;
             /* Memasukkan background image langsung di sini agar bisa menggunakan overlay gradient */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
-                              url("{{ asset('assets/shirt.png') }}");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url("{{ asset('assets/shirt.png') }}");
             background-size: cover;
             background-position: center;
         }
@@ -45,7 +46,7 @@
 
         .portfolio-hero-title {
             /* Menggunakan clamp agar ukuran font adaptif seperti di page About */
-            font-size: clamp(3rem, 8vw, 5.5rem); 
+            font-size: clamp(3rem, 8vw, 5.5rem);
             font-weight: 800;
             margin-bottom: 24px;
             text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
@@ -65,7 +66,8 @@
         .portfolio-intro {
             background: #D0C1A7;
             text-align: center;
-            padding: 100px 0 60px; /* Padding lebih besar agar transisi hero ke grid lebih lega */
+            padding: 100px 0 60px;
+            /* Padding lebih besar agar transisi hero ke grid lebih lega */
             color: #333333;
         }
 
@@ -84,7 +86,7 @@
             font-weight: 700;
             font-size: 1rem;
             letter-spacing: 0.04em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* ========== GRID PORTFOLIO (3x2 Layout) ========== */
@@ -146,13 +148,23 @@
 
         /* Responsive */
         @media (max-width: 991.98px) {
-            .portfolio-hero-section { height: 70vh; }
+            .portfolio-hero-section {
+                height: 70vh;
+            }
         }
 
         @media (max-width: 767.98px) {
-            .portfolio-hero-section { height: 60vh; }
-            .portfolio-intro { padding: 60px 20px; }
-            .portfolio-card-title { font-size: 15px; }
+            .portfolio-hero-section {
+                height: 60vh;
+            }
+
+            .portfolio-intro {
+                padding: 60px 20px;
+            }
+
+            .portfolio-card-title {
+                font-size: 15px;
+            }
         }
     </style>
 
@@ -161,11 +173,11 @@
         {{-- ================= HERO (100vh Sesuai About) ================= --}}
         <section class="portfolio-hero-section" data-aos="fade-in">
             <div class="portfolio-hero-content">
-                <h1 class="portfolio-hero-title" data-aos="fade-up" data-aos-duration="1000">Portfolio</h1>
+                <h1 class="portfolio-hero-title" data-aos="fade-up" data-aos-duration="1000">Portofolio</h1>
                 <p class="portfolio-hero-subtitle" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    Our journey has brought us together with brands at the forefront of their industries.
-                    Each collaboration has strengthened our understanding of the distinct strategies needed
-                    to elevate every type of business.
+                    Perjalanan kami telah mempertemukan kami dengan merek-merek terkemuka di industri mereka. Setiap
+                    kolaborasi telah memperkuat pemahaman kami tentang strategi khusus yang dibutuhkan untuk meningkatkan
+                    setiap jenis bisnis.
                 </p>
             </div>
         </section>
@@ -174,11 +186,8 @@
         <section class="portfolio-intro">
             <div class="container" data-aos="fade-up">
                 <p class="portfolio-intro-text">
-                    These are some of our selected works created within the period of
+                    Berikut adalah beberapa karya pilihan kami yang dibuat dalam periode ini
                 </p>
-                <div class="portfolio-period">
-                    Jan 2023 – Dec 2025
-                </div>
             </div>
         </section>
 
@@ -191,7 +200,8 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <a href="{{ route('inicioxgaswaras') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/IGArtboard 1@4x.png') }}" alt="GasWaroS" class="portfolio-card-img">
+                                <img src="{{ asset('assets/IGArtboard 1@4x.png') }}" alt="GasWaroS"
+                                    class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">GasWaraS</div>
                                 </div>
@@ -203,7 +213,8 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <a href="{{ route('ah-pek-kopitiam') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/design cup.png') }}" alt="Ah Pek Kopitiam" class="portfolio-card-img">
+                                <img src="{{ asset('assets/design cup.png') }}" alt="Ah Pek Kopitiam"
+                                    class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Ah Pek Kopitiam</div>
                                 </div>
@@ -215,7 +226,8 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <a href="{{ route('hutaraja-coffee-shop') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/Final Poster_Kennan A.M._097.png') }}" alt="Hutaraja Coffee Shop" class="portfolio-card-img">
+                                <img src="{{ asset('assets/Final Poster_Kennan A.M._097.png') }}" alt="Hutaraja Coffee Shop"
+                                    class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Hutaraja Coffee Shop</div>
                                 </div>
@@ -227,7 +239,8 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <a href="{{ route('isyana-sarasvati') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/cover buku.png') }}" alt="Isyana Sarasvati" class="portfolio-card-img">
+                                <img src="{{ asset('assets/cover buku.png') }}" alt="Isyana Sarasvati"
+                                    class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Isyana Sarasvati</div>
                                 </div>
@@ -239,7 +252,8 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <a href="{{ route('lus-adventures-de-l-art-deco') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/cgcoverRRR.png') }}" alt="Lus Adventures" class="portfolio-card-img">
+                                <img src="{{ asset('assets/cgcoverRRR.png') }}" alt="Lus Adventures"
+                                    class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Lus Adventures De l'Art Deco</div>
                                 </div>
@@ -251,7 +265,8 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <a href="{{ route('cookie-up-your-day') }}" style="text-decoration: none;">
                             <div class="portfolio-card">
-                                <img src="{{ asset('assets/Screenshot 2025-04-12 145334.png') }}" alt="Cookie Up Your Day" class="portfolio-card-img">
+                                <img src="{{ asset('assets/Screenshot 2025-04-12 145334.png') }}" alt="Cookie Up Your Day"
+                                    class="portfolio-card-img">
                                 <div class="portfolio-card-overlay">
                                     <div class="portfolio-card-title">Cookie up your Day</div>
                                 </div>
