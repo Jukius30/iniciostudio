@@ -1,26 +1,16 @@
-# InicioStudio Website
+# React + Vite
 
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Sebuah platform web modern dan responsif untuk **InicioStudio** yang berfungsi sebagai company profile, galeri portofolio, dan manajemen layanan studio secara digital. Dikembangkan dengan fokus pada performa yang cepat, antarmuka yang clean, dan pengalaman pengguna (UX) yang intuitif.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🚀 Fitur Utama
+## React Compiler
 
-*   **Dynamic Portfolio Showcase:** Galeri portofolio interaktif yang dapat dikategorikan untuk menampilkan hasil karya studio.
-*   **Service Catalog:** Informasi detail mengenai layanan yang ditawarkan oleh InicioStudio.
-*   **Content Management System (CMS):** Panel admin yang intuitif untuk mengelola konten halaman, portofolio, dan pesan masuk.
-*   **Contact & Inquiry Form:** Formulir kontak yang terintegrasi untuk memudahkan calon klien terhubung langsung dengan tim studio.
-*   **Responsive Design:** Optimasi penuh untuk berbagai perangkat, mulai dari smartphone, tablet, hingga desktop.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## 🛠️ Tech Stack
-
-*   **Framework:** Laravel (PHP)
-*   **Frontend:** Blade Templating, Tailwind CSS, JavaScript (Alpine.js / Vue.js optional)
-*   **Database:** MySQL / PostgreSQL
-*   **Tools & Tools Lainnya:** Composer, NPM / Vite
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
